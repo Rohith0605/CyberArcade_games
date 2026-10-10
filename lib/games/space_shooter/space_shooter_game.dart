@@ -34,7 +34,7 @@ class _SpaceShooterWidgetState extends State<SpaceShooterWidget>
   double _width = 800, _height = 520;
   int _score = 0, _kills = 0, _level = 1, _lives = 3, _best = 0;
   bool _playing = false, _ended = false, _paused = false;
-  bool _left = false, _right = false, _up = false, _down = false, _fire = false;
+  bool _left = false, _right = false, _up = false, _down = false;
   int _frame = 0;
 
   @override
@@ -88,7 +88,7 @@ class _SpaceShooterWidgetState extends State<SpaceShooterWidget>
           enemy.hp--;
           if (enemy.hp <= 0) {
             _enemies.remove(enemy); _kills++; _score += 100 * _level;
-            if (_kills % 12 == 0) _level++;
+            if (_kills % 12 == 0 && _level < 10) _level++;
           }
           break;
         }
@@ -124,8 +124,8 @@ class _SpaceShooterWidgetState extends State<SpaceShooterWidget>
   void _movePlayer(DragUpdateDetails d) {
     if (_width <= 0 || _height <= 0) return;
     setState(() {
-      _playerX = (_playerX + d.delta.dx / _width).clamp(.035, .965);
-      _playerY = (_playerY + d.delta.dy / _height).clamp(.1, .91);
+      _playerX = (_playerX + d.delta.dx / _width).clamp(.035, .965).toDouble();
+      _playerY = (_playerY + d.delta.dy / _height).clamp(.1, .91).toDouble();
     });
   }
 
@@ -208,10 +208,10 @@ class _SpaceShooterWidgetState extends State<SpaceShooterWidget>
               Positioned(bottom: 14, left: 14, right: 14, child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _control(Icons.arrow_left_rounded, () => setState(() => _playerX = (_playerX - .06).clamp(.035, .965))),
-                  _control(Icons.arrow_upward_rounded, () => setState(() => _playerY = (_playerY - .06).clamp(.1, .91))),
-                  _control(Icons.arrow_downward_rounded, () => setState(() => _playerY = (_playerY + .06).clamp(.1, .91))),
-                  _control(Icons.arrow_right_rounded, () => setState(() => _playerX = (_playerX + .06).clamp(.035, .965))),
+                  _control(Icons.arrow_left_rounded, () => setState(() => _playerX = (_playerX - .06).clamp(.035, .965).toDouble())),
+                  _control(Icons.arrow_upward_rounded, () => setState(() => _playerY = (_playerY - .06).clamp(.1, .91).toDouble())),
+                  _control(Icons.arrow_downward_rounded, () => setState(() => _playerY = (_playerY + .06).clamp(.1, .91).toDouble())),
+                  _control(Icons.arrow_right_rounded, () => setState(() => _playerX = (_playerX + .06).clamp(.035, .965).toDouble())),
                   const SizedBox(width: 10),
                   FilledButton.icon(
                     onPressed: () => setState(() => _shots.add(_Shot(_playerX * _width, _playerY * _height - 20, 10))),
