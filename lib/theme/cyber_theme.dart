@@ -17,7 +17,7 @@ class CyberTheme {
         secondary: purpleAccent,
         surface: surface,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
