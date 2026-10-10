@@ -1,0 +1,23 @@
+# Flutter / Dart & Web build artifacts
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+dist/
+node_modules/
+coverage/
+
+# IDE and OS files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+*.log

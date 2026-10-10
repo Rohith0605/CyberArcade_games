@@ -1,0 +1,6 @@
+{
+  "name": "Cyber Arcade",
+  "description": "A futuristic cyberpunk web gaming platform featuring five playable arcade games—Cyber Runner, Neon Reflex, Memory Matrix, Space Shooter, and Cyber Snake—with local high-score persistence and complete Flutter Web architecture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
