@@ -29,7 +29,9 @@ class HomeScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: const Color(0xFF0E1525),
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: const Color(0xFF22D3EE).withOpacity(0.35)),
+              border: Border.all(
+                color: const Color(0xFF22D3EE).withValues(alpha: 0.35),
+              ),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,7 +57,10 @@ class HomeScreen extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF22D3EE),
                         foregroundColor: const Color(0xFF090D16),
-                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 24,
+                          vertical: 16,
+                        ),
                       ),
                       child: const Text('Play Now'),
                     ),
@@ -72,7 +77,11 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(height: 32),
           const Text(
             'All Arcade Cabinets (5 Games Available)',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
           const SizedBox(height: 16),
           GridView.builder(
